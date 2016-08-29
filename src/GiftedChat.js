@@ -201,6 +201,7 @@ class GiftedChat extends React.Component {
   // TODO
   // setMinInputToolbarHeight
   getMinInputToolbarHeight() {
+<<<<<<< HEAD
     return this.props.renderAccessory ? this.props.minInputToolbarHeight * 2 : this.props.minInputToolbarHeight;
   }
 
@@ -220,6 +221,12 @@ class GiftedChat extends React.Component {
    */
   getMessagesContainerHeightWithKeyboard(composerHeight = this.state.composerHeight) {
     return this.getBasicMessagesContainerHeight(composerHeight) - this.getKeyboardHeight() + this.getBottomOffset();
+=======
+    if (this.props.renderAccessory) {
+      return MIN_INPUT_TOOLBAR_HEIGHT + this.props.accessoryHeight;
+    }
+    return MIN_INPUT_TOOLBAR_HEIGHT;
+>>>>>>> allow inversion and refresh control
   }
 
   prepareMessagesContainerHeight(value) {
@@ -294,7 +301,10 @@ class GiftedChat extends React.Component {
         <MessageContainer
           {...this.props}
 
-          invertibleScrollViewProps={this.invertibleScrollViewProps}
+          invertibleScrollViewProps={{
+            ...this.invertibleScrollViewProps,
+            ...this.props.invertibleScrollViewProps
+          }}
 
           messages={this.getMessages()}
 
@@ -505,6 +515,7 @@ GiftedChat.defaultProps = {
   renderMessage: null,
   renderSend: null,
   renderTime: null,
+  invertibleScrollViewProps: {},
   user: {},
   bottomOffset: 0,
   minInputToolbarHeight: 44,
@@ -521,6 +532,7 @@ GiftedChat.propTypes = {
   onLoadEarlier: React.PropTypes.func,
   locale: React.PropTypes.string,
   isAnimated: React.PropTypes.bool,
+  accessoryHeight: React.PropTypes.number,
   renderAccessory: React.PropTypes.func,
   renderActions: React.PropTypes.func,
   renderAvatar: React.PropTypes.func,
@@ -539,6 +551,7 @@ GiftedChat.propTypes = {
   renderSend: React.PropTypes.func,
   renderTime: React.PropTypes.func,
   user: React.PropTypes.object,
+  invertibleScrollViewProps: React.PropTypes.object,
   bottomOffset: React.PropTypes.number,
   minInputToolbarHeight: React.PropTypes.number,
   isLoadingEarlier: React.PropTypes.bool,
