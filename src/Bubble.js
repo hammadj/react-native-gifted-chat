@@ -152,6 +152,7 @@ const styles = {
       borderRadius: 15,
       backgroundColor: '#f0f0f0',
       marginRight: 60,
+      minHeight: 20,
       justifyContent: 'flex-end',
     },
     containerToNext: {
@@ -170,6 +171,7 @@ const styles = {
       borderRadius: 15,
       backgroundColor: '#0084ff',
       marginLeft: 60,
+      minHeight: 20,
       justifyContent: 'flex-end',
     },
     containerToNext: {
