@@ -201,7 +201,6 @@ class GiftedChat extends React.Component {
   // TODO
   // setMinInputToolbarHeight
   getMinInputToolbarHeight() {
-<<<<<<< HEAD
     return this.props.renderAccessory ? this.props.minInputToolbarHeight * 2 : this.props.minInputToolbarHeight;
   }
 
@@ -221,12 +220,6 @@ class GiftedChat extends React.Component {
    */
   getMessagesContainerHeightWithKeyboard(composerHeight = this.state.composerHeight) {
     return this.getBasicMessagesContainerHeight(composerHeight) - this.getKeyboardHeight() + this.getBottomOffset();
-=======
-    if (this.props.renderAccessory) {
-      return MIN_INPUT_TOOLBAR_HEIGHT + this.props.accessoryHeight;
-    }
-    return MIN_INPUT_TOOLBAR_HEIGHT;
->>>>>>> allow inversion and refresh control
   }
 
   prepareMessagesContainerHeight(value) {
